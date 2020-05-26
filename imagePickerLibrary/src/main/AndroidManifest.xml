@@ -1,0 +1,46 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.it.imagePickerLibrary" >
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+
+    <application android:requestLegacyExternalStorage="true">
+        <activity android:name=".withoutCompress.ImagePickerActivity"
+            android:label=""
+            android:theme="@style/Theme.Transparent"/>
+
+        <activity android:name=".withCompress.ImagePickerActivityWithCompressor"
+            android:label=""
+            android:theme="@style/Theme.Transparent"/>
+
+        <provider
+            android:authorities="${applicationId}.provider"
+            android:name="com.it.imagePickerLibrary.ImagePickerFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/image_picker_provider_paths" />
+
+        </provider>
+
+        <!--
+
+        <provider
+            android:authorities="${applicationId}.provider"
+            android:name="android.support.v4.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+        -->
+
+    </application>
+
+</manifest>

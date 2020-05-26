@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.it.permissionLibrary">
+
+    <application>
+        <activity android:name="com.it.permissionLibrary.PermissionsActivity"
+            android:label=""
+            android:theme="@style/Theme.Transparent"/>
+    </application>
+
+</manifest>

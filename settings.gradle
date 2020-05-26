@@ -1,0 +1,5 @@
+rootProject.name='MyCameraModuleApplication'
+include ':app'
+include ':permissionLibrary'
+include ':imagePickerLibrary'
+include ':videoCaptureLibrary'
