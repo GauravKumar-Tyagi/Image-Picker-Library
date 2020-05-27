@@ -21,6 +21,7 @@ import java.io.OutputStream;
  */
 
 class FileUtil {
+    private static String TAG = "FileUtil";
     private static final int EOF = -1;
     private static final int DEFAULT_BUFFER_SIZE = 1024 * 4;
 
@@ -94,10 +95,10 @@ class FileUtil {
         File newFile = new File(file.getParent(), newName);
         if (!newFile.equals(file)) {
             if (newFile.exists() && newFile.delete()) {
-                Log.d("FileUtil", "Delete old " + newName + " file");
+                Log.d(TAG, "Delete old " + newName + " file");
             }
             if (file.renameTo(newFile)) {
-                Log.d("FileUtil", "Rename file to " + newName);
+                Log.d(TAG, "Rename file to " + newName);
             }
         }
         return newFile;

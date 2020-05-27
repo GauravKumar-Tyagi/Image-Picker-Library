@@ -23,9 +23,9 @@ class ImagePickerActivity : AppCompatActivity() {
 
     companion object {
         var mCallBack : ImagePickerCallback?= null;
-        fun startActivityForResult(activity : WeakReference<Activity> , getMyImage : ImagePickerCallback)
+        fun startActivityForResult(activity : WeakReference<Activity> , callBack : ImagePickerCallback)
         {
-            mCallBack = getMyImage
+            mCallBack = callBack
 
             var myActivity : Activity? = activity?.get()
             if(myActivity!=null){

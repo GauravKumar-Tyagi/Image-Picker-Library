@@ -23,24 +23,24 @@ class PermissionsActivity : AppCompatActivity() {
     private var checker: PermissionsChecker? = null
     private var requiresCheck: Boolean = false
 
-    public interface MyAllPermissionsGranted
+    public interface AllPermissionGrantedCallBack
     {
         fun allPermissionsGranted()
         fun permissionsNotGranted()
     }
 
     companion object {
-        lateinit var myAllPermissionsGranted : MyAllPermissionsGranted;
+        lateinit var mAllPermissionGrantedCallBack : AllPermissionGrantedCallBack
         lateinit var reqPermissions : Array<String>
 
         fun startActivityForResult(activity : WeakReference<Activity>,
                                    requestCode : Int,
-                                   permissionsGranted : MyAllPermissionsGranted,
+                                   permissionsGrantedCallBack : AllPermissionGrantedCallBack,
                                    vararg permissions : String)
         {
             var myActivity : Activity? = activity?.get()
 
-            myAllPermissionsGranted = permissionsGranted;
+            mAllPermissionGrantedCallBack = permissionsGrantedCallBack
             reqPermissions = permissions as Array<String>
 
             if(myActivity != null){
@@ -90,7 +90,7 @@ class PermissionsActivity : AppCompatActivity() {
 
     private fun allPermissionsGranted() {
         setResult(PERMISSIONS_GRANTED)
-        myAllPermissionsGranted.allPermissionsGranted()
+        mAllPermissionGrantedCallBack.allPermissionsGranted()
         finish()
     }
 
@@ -130,7 +130,7 @@ class PermissionsActivity : AppCompatActivity() {
         dialogBuilder.setCancelable(false)
         dialogBuilder.setNegativeButton(R.string.permission_quit, DialogInterface.OnClickListener { dialog, which ->
             setResult(PERMISSIONS_DENIED)
-            myAllPermissionsGranted.permissionsNotGranted()
+            mAllPermissionGrantedCallBack.permissionsNotGranted()
             finish()
         })
         dialogBuilder.setPositiveButton(R.string.permission_settings, DialogInterface.OnClickListener { dialog, which -> startAppSettings() })

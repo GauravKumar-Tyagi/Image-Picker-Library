@@ -19,9 +19,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-/**
- * Created by android on 7/4/18.
- */
+
 class ImagePickerDialog : androidx.fragment.app.DialogFragment(), View.OnClickListener {
 
 

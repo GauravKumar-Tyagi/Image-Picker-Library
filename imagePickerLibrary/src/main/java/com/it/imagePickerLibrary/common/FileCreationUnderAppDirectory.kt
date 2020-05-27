@@ -29,7 +29,7 @@ object FileCreationUnderAppDirectory {
         if (!subStorageDir.exists()) {
             subStorageDir.mkdirs()
         }
-        Log.e("~~~~~!!!!~!@@#",subStorageDir.absolutePath)
+        //Log.e("~~~~~!!!!~!@@#",subStorageDir.absolutePath)
 
         // delete all old files
         if(storageDir?.listFiles() != null){

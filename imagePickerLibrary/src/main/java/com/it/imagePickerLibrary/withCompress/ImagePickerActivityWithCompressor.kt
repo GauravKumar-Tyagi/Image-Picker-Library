@@ -23,7 +23,7 @@ import java.lang.ref.WeakReference
 
 
 class ImagePickerActivityWithCompressor : AppCompatActivity() {
-
+    private val TAG : String = "ImgPkrActivityCompres"
     private var actualImage: File? = null
     var compressedImage: File? = null
 
@@ -36,9 +36,9 @@ class ImagePickerActivityWithCompressor : AppCompatActivity() {
 
     companion object {
         var mCallBack : ImagePickerCallback?= null;
-        fun startActivityForResult(activity : WeakReference<Activity> , getMyImage : ImagePickerCallback)
+        fun startActivityForResult(activity : WeakReference<Activity> , callBack : ImagePickerCallback)
         {
-            mCallBack = getMyImage
+            mCallBack = callBack
 
             var myActivity : Activity? = activity?.get()
             if(myActivity!=null){
@@ -108,10 +108,10 @@ class ImagePickerActivityWithCompressor : AppCompatActivity() {
                 /***********/
                 val temp : String = compressedImage?.absolutePath ?: ""
 
-                Log.e("~~~!~!~!~!","Actual :: "+actualImage?.absolutePath)
-                Log.e("~~~!~!~!~!","Compressed :: "+temp)
-                Log.e("~~~!~!~!~!","Actual Size :: "+actualImage?.length())
-                Log.e("~~~!~!~!~!","Compressed Size :: "+compressedImage?.length())
+                Log.e(TAG,"Actual :: "+actualImage?.absolutePath)
+                Log.e(TAG,"Compressed :: "+temp)
+                Log.e(TAG,"Actual Size :: "+actualImage?.length())
+                Log.e(TAG,"Compressed Size :: "+compressedImage?.length())
 
                 temp?.let { mCallBack?.getImageURL(it) }
                 finish()
@@ -145,10 +145,10 @@ class ImagePickerActivityWithCompressor : AppCompatActivity() {
                 /***********/
                 val temp : String = compressedImage?.absolutePath ?: ""
 
-                Log.e("~~~!~!~!~!","Actual :: "+actualImage?.absolutePath)
-                Log.e("~~~!~!~!~!","Compressed :: "+temp)
-                Log.e("~~~!~!~!~!","Actual Size :: "+actualImage?.length())
-                Log.e("~~~!~!~!~!","Compressed Size :: "+compressedImage?.length())
+                Log.e(TAG,"Actual :: "+actualImage?.absolutePath)
+                Log.e(TAG,"Compressed :: "+temp)
+                Log.e(TAG,"Actual Size :: "+actualImage?.length())
+                Log.e(TAG,"Compressed Size :: "+compressedImage?.length())
 
                 temp?.let { mCallBack?.getImageURL(it) }
                 finish()

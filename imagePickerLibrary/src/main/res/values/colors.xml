@@ -7,7 +7,7 @@
     <color name="colorSecondary">#4A90E2</color>
     <!-- Change these colors as per main project -->
     <color name="black">#000000</color>
-    <color name="background_yellow">#FFD7B43F</color>
+
     <color name="color_dialog_image_picker">#E7EAED</color>
     <color name="warning">#E86850</color>
 </resources>

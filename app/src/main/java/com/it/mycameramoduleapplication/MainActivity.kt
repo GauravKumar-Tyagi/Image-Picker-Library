@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
             myWeakRefActivity?.let {
                 PermissionsActivity.startActivityForResult(it, 0,
-                    object : PermissionsActivity.MyAllPermissionsGranted{
+                    object : PermissionsActivity.AllPermissionGrantedCallBack{
                         override fun permissionsNotGranted() {
                             Toast.makeText(this@MainActivity,"Camera Permission Required",Toast.LENGTH_LONG).show()
                         }
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
 
             myWeakRefActivity?.let {
                 PermissionsActivity.startActivityForResult(it, 0,
-                    object : PermissionsActivity.MyAllPermissionsGranted{
+                    object : PermissionsActivity.AllPermissionGrantedCallBack{
                         override fun permissionsNotGranted() {
                             Toast.makeText(this@MainActivity,"Camera Permission Required",Toast.LENGTH_LONG).show()
                         }
